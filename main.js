@@ -34,80 +34,48 @@ function guessGame(){
     const response = confirm("Are you ready " + user + "?")
     console.log(response)
     if (response){
-        alert("OK lets start! Please answer y/yes or n/no");
+        alert("OK lets start!");
         console.log("Ready to do this")
         ready = true
-        guessGameAgain()
-    // return ready=true;}
-    //     else { alert("Come back when your ready.");
-    //     console.log("notready")
-    //     return ready=false
-    //     }
-    // }
-// function guessGameAgain(){
-    // console.log(ready + "again")
+        alert("Please only answer in yes/no or y/n ")
+
+        testQuiz("Is my husband's name Nick?", "y", "Correct "+ user )
+        testQuiz("Is my dad called Nick?", "y", "Yes his name is also Nick. Well done "+ user )
+        testQuiz("Do I have a BA in Fine Arts?", "n", "Correct "+ user + ", I have a BA in Digital Animation" )
+        testQuiz("Am I a Divemaster?", "n", "Good spot "+ user + ". I am a Master Scuba Diver not Divermaster")
+        testQuiz("Test/Quality Engineers break code?", "n", "Correct "+user+". Testing doesn't break code. It just shows you it's broken!")
+        testQuizFinished()
+        
     if(ready === true){
         console.log("Here we go its working")
     }
     else {alert("something isnt right")}
-// }
-return ready=true;}
+    return ready=true;}
         else { alert("Come back when your ready.");
         console.log("notready")
         return ready=false
         }
     }
 
-    // function guessGameAgain(){
-    //     console.log("Did this work?")
-    // }
-
-
-
-
-
-    // } // working to here
-// } // working to here
-function guessGameAgain(){
-    let husbandName
-    let dadName
-    let degreeIn
-    let hobby
-    let job
-    // alert("IM WORKING")
-    console.log("Here as well working")
-
-        // husbandName = prompt("Is my husband called Nick?").toLowerCase()
-        while(husbandName != "yes" && husbandName != "no" && husbandName != "n" && husbandName != "y"){
-            alert("Please only answer in yes/no or y/n ")
-            console.log(husbandName);
-            husbandName = prompt("Is my husband called Nick? Please answer yes/no or y/n only").toLowerCase();
-        
-                if(husbandName === "y" || husbandName === "yes" ){
-                    console.log("Correct his name is Nick")
-                    alert("Thats correct!")
-            } else if (husbandName === "no" || husbandName === "n"){ 
-                console.log("Not write answer") ;
-                alert("Sorry " + user + " that's not the right answer.")
-            }
-                else {console.log("Why are you not working")}
-            }
-        // }
-        fatherName = prompt("Is Nick the name of my father?").toLowerCase()
-        while(dadName != "yes" && dadName != "no" && dadName != "n" && dadName != "y"){
-            alert("Please only answer in yes/no or y/n ");
-            fatherName = prompt("Is Nick the name of my father?").toLowerCase();
+// // testQuiz("What is the date", "y", "Correct "+ user )
+function testQuiz(question, answer, message){
+    let userAnswer
+    while(userAnswer != "yes" && userAnswer != "no" && userAnswer != "n" && userAnswer != "y"){
+        console.log(userAnswer);
+        userAnswer = prompt(question).toLowerCase();
+    
+            if((userAnswer === "y" || userAnswer === "yes") && answer === "y" ){
+                console.log("Correct his name is Nick")
+                alert(message)
+        } else if ((userAnswer === "no" || userAnswer === "n") && answer === "n"){ 
+            console.log("Not write answer") ;
+            alert(message)
+        } else if(userAnswer != "yes" && userAnswer != "no" && userAnswer != "n" && userAnswer != "y"){
+            alert("Please check you input is in y/n yes/no format.")
+        }
+        else {
+            alert("Sorry " + user + " that's not the right answer.");
+            console.log("Why are you not working")
         }
     }
-        //         if(fatherName === "y" || fatherName === "yes" ){
-        //             console.log("Correct his name is Nick")
-        //             alert("Thats correct!")
-        //     } else if (fatherName === "no" || fatherName === "n"){ 
-        //         console.log("Not write answer") ;
-        //         alert("Sorry " + user + " that's not the right answer.")
-        //     }
-
-// function guessGameAgain(){
-//     alert("IM WORKING")
-//     console.log("Here as well working")
-// }
+}
