@@ -1,24 +1,17 @@
 alert("Hi, my name is Jessica, Welcome to my site!")
-// yourName()
 let user = yourName();
 console.log(user)
 
 function yourName(){
-    let user = prompt("What is your name?")
-    console.log(user)
-    // if(user == null){
-    //     console.log
-    //     user = prompt("Im sorry but you cannot leave this blank.")
-    // } else {
-    //     return user
-    // }
-
+    let user
+    console.log("sraet" + user)
     while (!user){
         user = prompt("Please give me a name to call you.")
         if (user === "Chris" || user === "chris"){
             alert("Hello " + user + " enjoy the fonts.")
             console.log(user)
         } else if(user){
+            console.log("user set to " + user)
             alert("Welcome to my page " + user)
         } else (
             console.log(user)
@@ -64,9 +57,11 @@ function testQuiz(question, answer, message){
         console.log(userAnswer);
         userAnswer = prompt(question);
         if(userAnswer == null){
+            console.log(userAnswer)
             alert("OK fine don't answer this question?")
             return
         } else {
+            console.log(userAnswer)
             userAnswer = userAnswer.toLowerCase()
         }
     
@@ -77,8 +72,10 @@ function testQuiz(question, answer, message){
             console.log("Not write answer") ;
             alert(message)
         } else if(userAnswer != "yes" && userAnswer != "no" && userAnswer != "n" && userAnswer != "y"){
+            console.log(userAnswer)
             alert("Please check you input is in y/n yes/no format.")
         } else if (userAnswer == null){
+            console.log(userAnswer)
             alert("OK " + user + " hope you will come back later.")
         }
         else {
@@ -86,4 +83,8 @@ function testQuiz(question, answer, message){
             console.log("Why are you not working")
         }
     }
+}
+
+function testQuizFinished(){
+    alert("Thank you " + user + " for taking part of my quiz.")
 }
