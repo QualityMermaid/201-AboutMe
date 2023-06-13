@@ -28,14 +28,39 @@ function guessGame(){
     const response = confirm("Are you ready " + user + "?")
     console.log(response)
     if (response){
-        alert("OK lets start!");
-        while(husbandName != ""){
-            husbandName = prompt("Is my husband called Nick?")}
-                if(husbandName != "y" || husbandName != "n" ||husbandName != "yes" || husbandName!="no"){
-                console.log(husbandName)}
-} else {
-        alert("Come back when your ready.")
-    } }
-
-
-    
+        alert("OK lets start! Please answer y/yes or n/no");
+        
+        husbandName = prompt("Is my husband called Nick?").toLowerCase()
+        while(husbandName != "yes" && husbandName != "no" && husbandName != "n" && husbandName != "y"){
+            alert("Please only answer in yes/no or y/n ");
+            husbandName = prompt("Is my husband called Nick? Please answer yes/no or y/n only").toLowerCase();
+        
+                if(husbandName === "y" || husbandName === "yes" ){
+                    console.log("Correct his name is Nick")
+                    alert("Thats correct!")
+            } else if (husbandName === "no" || husbandName === "n"){ 
+                console.log("Not write answer") ;
+                alert("Sorry " + user + " that's not the right answer.")
+            }
+                else {console.log("Why are you not working")}
+            }
+        }
+        // fatherName = prompt("Is Nick the name of my father?").toLowerCase()
+        // while(fatherName != "yes" && fatherName != "no" && fatherName != "n" && fatherName != "y"){
+        //     alert("Please only answer in yes/no or y/n ");
+        //     fatherName = prompt("Is Nick the name of my father?").toLowerCase();
+        
+        //         if(fatherName === "y" || fatherName === "yes" ){
+        //             console.log("Correct his name is Nick")
+        //             alert("Thats correct!")
+        //     } else if (fatherName === "no" || fatherName === "n"){ 
+        //         console.log("Not write answer") ;
+        //         alert("Sorry " + user + " that's not the right answer.")
+        //     }
+        //         else {console.log("Why are you not working")}
+        //     }
+        // }
+        else {  
+        alert("Come back when your ready.");
+    }
+}
