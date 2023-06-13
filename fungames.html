@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game page</title>
+    <meta name="description" content="This is my games page for class 201">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Jessica Bane</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html"> Main Page</a>
+                </li>
+                <li>
+                    <a class="active" href="fungames.html"> Fun & Games </a>
+                </li>
+                <li>
+                    <a href="contact.html"> Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="section-quiz">
+            <div class="main-container container">
+                <p class="quiz">
+                Hope you have liked my page so far. Here is a little bonus quiz on some of the things I have mentioned above.
+                </p>
+                <section>
+                    <p class="par1">
+                        What is my fav colour?
+                        <button class="btn" onclick="favColour()"> Pick a Colour!</button>
+                    </p>
+                    <p class="par2">
+                        What is my cat called?
+                        <button class="btn" onclick="myCatName()"> Click here to make a guess!</button>
+                    </p>
+                    <p class="par3">
+                        Where do I live?
+                        <button class="btn" onclick="myLocation()"> Give it a go!</button>
+    
+                    </p>
+                    <p class="par4">
+                        What video game am I currently playing?
+                        <button class="btn" onclick="myGame()"> Hey! Listen!</button>
+                        
+                    </p>
+                    <p>
+                        <button class=" btn btn-fin" onclick="finished()"> Finished Quiz</button>
+                    </p>
+        </section>
+    </main>
+    <footer></footer>
+</body>
+</html>

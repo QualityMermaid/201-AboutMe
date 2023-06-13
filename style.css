@@ -1,0 +1,17 @@
+/* font-family: 'Lora', serif; */
+
+
+
+h1{
+    font-family: 'Lora', serif;
+    color: blue;
+}
+
+.chris{
+    font-family: cursive;
+}
+
+.active{
+    background-color: blueviolet;
+    color: black;
+}
