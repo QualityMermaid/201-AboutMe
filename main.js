@@ -12,10 +12,30 @@ function yourName(){
         alert("Hello " + user + " enjoy the fonts.")
         console.log(user)
     } else {alert("Welcome to my page " + user)}
+    return user
     console.log(user)
 
 }
 
 function guessGame(){
+    let husbandName
+    let fatherName
+    let degreeIn
+    let hobby
+    let job
+
     console.log(user)
-}
+    const response = confirm("Are you ready " + user + "?")
+    console.log(response)
+    if (response){
+        alert("OK lets start!");
+        while(husbandName != ""){
+            husbandName = prompt("Is my husband called Nick?")}
+                if(husbandName != "y" || husbandName != "n" ||husbandName != "yes" || husbandName!="no"){
+                console.log(husbandName)}
+} else {
+        alert("Come back when your ready.")
+    } }
+
+
+    

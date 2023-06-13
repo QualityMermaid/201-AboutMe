@@ -1,3 +1,4 @@
+let user = prompt("What would you like me to call you now?")
 let colour;
     let colourDone = 0;
 
@@ -77,7 +78,7 @@ let colour;
             let allDone = colourDone+catDone+locDone+gameDone
             console.log(allDone)
             if(allDone <= 3) {
-                alert("Sorry " + user + " you have not gotten it all right yet.")
+                alert("Sorry " + user + " you have not gotten it all right yet. Only completed " + allDone + ".")
             } else if (allDone == 4){
                 alert("Congratulations!!!!!")
             } else return
