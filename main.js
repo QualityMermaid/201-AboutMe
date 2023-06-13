@@ -45,22 +45,20 @@ function guessGame(){
                 else {console.log("Why are you not working")}
             }
         }
-        // fatherName = prompt("Is Nick the name of my father?").toLowerCase()
-        // while(fatherName != "yes" && fatherName != "no" && fatherName != "n" && fatherName != "y"){
-        //     alert("Please only answer in yes/no or y/n ");
-        //     fatherName = prompt("Is Nick the name of my father?").toLowerCase();
+        fatherName = prompt("Is Nick the name of my father?").toLowerCase()
+        while(fatherName != "yes" && fatherName != "no" && fatherName != "n" && fatherName != "y"){
+            alert("Please only answer in yes/no or y/n ");
+            fatherName = prompt("Is Nick the name of my father?").toLowerCase();
         
-        //         if(fatherName === "y" || fatherName === "yes" ){
-        //             console.log("Correct his name is Nick")
-        //             alert("Thats correct!")
-        //     } else if (fatherName === "no" || fatherName === "n"){ 
-        //         console.log("Not write answer") ;
-        //         alert("Sorry " + user + " that's not the right answer.")
-        //     }
-        //         else {console.log("Why are you not working")}
-        //     }
-        // }
-        else {  
-        alert("Come back when your ready.");
-    }
+                if(fatherName === "y" || fatherName === "yes" ){
+                    console.log("Correct his name is Nick")
+                    alert("Thats correct!")
+            } else if (fatherName === "no" || fatherName === "n"){ 
+                console.log("Not write answer") ;
+                alert("Sorry " + user + " that's not the right answer.")
+            }
+                else {console.log("Why are you not working")}
+        } 
+    //     else { alert("Come back when your ready.");
+    // }
 }
