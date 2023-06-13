@@ -6,30 +6,30 @@ console.log(user)
 function yourName(){
     let user = prompt("What is your name?")
     console.log(user)
-    while (user.length==0){
+    // if(user == null){
+    //     console.log
+    //     user = prompt("Im sorry but you cannot leave this blank.")
+    // } else {
+    //     return user
+    // }
+
+    while (!user){
         user = prompt("Please give me a name to call you.")
-    } if (user === "Chris" || user === "chris"){
-        alert("Hello " + user + " enjoy the fonts.")
-        console.log(user)
-    } else {alert("Welcome to my page " + user)}
+        if (user === "Chris" || user === "chris"){
+            alert("Hello " + user + " enjoy the fonts.")
+            console.log(user)
+        } else if(user){
+            alert("Welcome to my page " + user)
+        } else (
+            console.log(user)
+        )
+    }
+    console.log("User ='" + user+ "'")
     return user
-    console.log(user)
-
 }
-// let husbandName
-// let fatherName
-// let degreeIn
-// let hobby
-// let job
-let ready = false //working
-function guessGame(){
-    // let husbandName
-    // let fatherName
-    // let degreeIn
-    // let hobby
-    // let job
-    // let ready
 
+let ready = false 
+function guessGame(){
     console.log(user)
     const response = confirm("Are you ready " + user + "?")
     console.log(response)
@@ -62,7 +62,13 @@ function testQuiz(question, answer, message){
     let userAnswer
     while(userAnswer != "yes" && userAnswer != "no" && userAnswer != "n" && userAnswer != "y"){
         console.log(userAnswer);
-        userAnswer = prompt(question).toLowerCase();
+        userAnswer = prompt(question);
+        if(userAnswer == null){
+            alert("OK fine don't answer this question?")
+            return
+        } else {
+            userAnswer = userAnswer.toLowerCase()
+        }
     
             if((userAnswer === "y" || userAnswer === "yes") && answer === "y" ){
                 console.log("Correct his name is Nick")
@@ -72,6 +78,8 @@ function testQuiz(question, answer, message){
             alert(message)
         } else if(userAnswer != "yes" && userAnswer != "no" && userAnswer != "n" && userAnswer != "y"){
             alert("Please check you input is in y/n yes/no format.")
+        } else if (userAnswer == null){
+            alert("OK " + user + " hope you will come back later.")
         }
         else {
             alert("Sorry " + user + " that's not the right answer.");
