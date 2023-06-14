@@ -40,6 +40,7 @@ function guessGame(){
         testQuiz("Do I have a BA in Fine Arts?", "n", "y", "Correct "+ user + ", I have a BA in Digital Animation", "Sorry that's incorrect " + user  )
         testQuiz("Am I a Divemaster?", "n", "y", "Good spot "+ user + ". I am a Master Scuba Diver not Divermaster", "Sorry that's incorrect " + user )
         testQuiz("Test/Quality Engineers break code?", "n", "y", "Correct "+user+". Testing doesn't break code. It just shows you it's broken!", "Sorry that's incorrect " + user )
+        // testQuizNumer()
         testQuizFinished()
         
     if(ready === true){
@@ -104,6 +105,79 @@ function testQuiz(question, answer, wrongAnswer, messageCorrect, messageWrong){
         }
     }
 }
+
+function testQuizNumer(){
+    let numberGuessed
+    while(numberGuessed != 7){
+        console.log("This is the number guessed " + numberGuessed);
+        numberGuessed = prompt("Can you guess my lucky number? Hint: between 1 and 10");
+        if(numberGuessed == null){
+            console.log("num is null" + numberGuessed)
+            alert("OK fine don't answer this question?")
+            skippedQuestion = skippedQuestion + 1
+            console.log("Currenlt no. of skipped questions " + skippedQuestion)
+            return
+        } else {
+            numberGuessed = numberGuessed
+        } 
+        for (let i = 0; numberGuessed; i++){
+            if (!numberGuessed){
+                alert("Please give me a valid input between 1 and 10!!!")
+                console.log("not valid")
+                numberGuessed = prompt("Can you guess my lucky number? Hint: between 1 and 10")
+            }else if(isNaN(numberGuessed)){
+                alert("Please give my a valid input between 1 and 10")
+                console.log("User guessed new number " + numberGuessed)
+                numberGuessed = prompt("Can you guess my lucky number? Hint: between 1 and 10")
+            }else if(numberGuessed === 7){
+                alert("Correct " + user +" "+ numberGuessed + " is my lucky number!")
+            } else if(numberGuessed <= 0){
+                alert("Sorry that number is too low. Try a higher one.")
+                console.log("too low" + numberGuessed)
+                numberGuessed = prompt("Please try a higher number")
+                console.log("new number" + numberGuessed)
+            } else if(numberGuessed >10){
+                console.log("too high" + numberGuessed)
+                alert("Sorry that number is too high. Try a lower one.")
+                numberGuessed = prompt("Please enter a lower number")
+                console.log("newNumer" + numberGuessed)
+            }
+        }
+        // }
+    }
+}
+    // do {
+    //     numberGuessed = prompt("Can you guess my lucky number? Hint: between 1 and 10")
+    //     console.log("User guessed " +numberGuessed)
+    // } while(!numberGuessed){
+    //     alert ("Please give me a valid number")
+    //     console.log("User guessed " +numberGuessed)
+    // } for (let i = 0; numberGuessed; i++){
+    //     if (!numberGuessed){
+    //         // alert("Please give me a valid input between 1 and 10!!!")
+    //         console.log("not valid")
+    //         numberGuessed = prompt("Can you guess my lucky number? Hint: between 1 and 10")
+    //     }else if(isNaN(numberGuessed)){
+    //         // alert("Please give my a valid input between 1 and 10")
+    //         console.log("User guessed new number " + numberGuessed)
+    //         numberGuessed = prompt("Can you guess my lucky number? Hint: between 1 and 10")
+    //     }else if(numberGuessed === 7){
+    //         alert("Correct " + user +" "+ numberGuessed + " is my lucky number!")
+    //     } else if(numberGuessed <= 0){
+    //         alert("Sorry that number is too low")
+    //         console.log("too low" + numberGuessed)
+    //         numberGuessed = prompt("Please try a higher number")
+    //         console.log("new number" + numberGuessed)
+    //     } else if(numberGuessed >10){
+    //         console.log("too high" + numberGuessed)
+    //         alert("Sorry that number is too high")
+    //         numberGuessed = prompt("Please enter a lower number")
+    //         console.log("newNumer" + numberGuessed)
+    //     }
+    //     }
+    // }  
+// }
+
 
 function testQuizFinished(){
     alert("Thank you " + user + " for taking part of my quiz. You have answer " + points + " questions correctly! You also skipped " + skippedQuestion + ".")
