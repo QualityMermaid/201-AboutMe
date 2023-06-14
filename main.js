@@ -44,7 +44,7 @@ function guessGame(){
         alert("OK lets start!");
         console.log("Ready to do this")
         ready = true
-        alert("Please only answer in yes/no or y/n ")
+        alert("For these questions please only answer in yes/no or y/n ")
 
         testQuiz("Is my husband's name Nick?", "y", "n", "Correct "+ user, "Sorry that's incorrect " + user )
         testQuiz("Is my dad called Nick?", "y", "n", "Yes his name is also Nick. Well done "+ user , "Sorry that's incorrect " + user )
@@ -131,12 +131,14 @@ function testQuiz(question, answer, wrongAnswer, messageCorrect, messageWrong){
     console.log("End y/n")
     // randomNumber()
 }
-let num = Math.floor(Math.random() * 10) + 1;
-let turns = 4;
+let num;
+let turns;
     
     function randomNumber() {
+        num = Math.floor(Math.random() * 100) + 1;
+        turns = 4;
     while (turns > 0) {
-        guess=prompt("Try and guess a random number!!!");
+        guess=prompt("For this question try and guess a random number up to 100!!!");
             if(guess == null){
                 console.log(guess)
                 alert("OK fine don't answer this question?")
@@ -160,8 +162,9 @@ let turns = 4;
     } if (turns==0)
         alert ("Sorry " + user + " you failed to guess correctly. The correct numer was " + num);
         wrongNum = wrongNum +1
-        console.log("you got it wron " + wrongNum)
+        console.log("you got it wrong " + wrongNum)
         turns = 4
+        num = Math.floor(Math.random() * 100) + 1;
 }
     
     
