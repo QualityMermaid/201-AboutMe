@@ -2,11 +2,18 @@ alert("Hi, my name is Jessica, Welcome to my site!")
 let user = yourName();
 let pointsYN = 0;
 let pointsNum = 0;
+let points10 = 0
 let totalPoints = 0;
 let wrongPoints = 0;
+let wrongNum = 0;
+let wrong10 = 0;
+let totalWrong = 0;
 let skippedQuestionYN = 0;
 let skippedQuestionNum = 0;
+let skippedQuestion10 = 0;
 let skippedQuestions = 0;
+const top10Drinks = ["pepsimax", "strawberry daiquiri", "lemonade","appletiser", "mixed fruit cider","mojito","elderflower collins","lychee gimlet","gin and lemonade","applejuice"]
+
 console.log("users name =" + user)
 
 function yourName(){
@@ -45,12 +52,19 @@ function guessGame(){
         testQuiz("Am I a Divemaster?", "n", "y", "Good spot "+ user + ". I am a Master Scuba Diver not Divermaster", "Sorry that's incorrect " + user )
         testQuiz("Test/Quality Engineers break code?", "n", "y", "Correct "+user+". Testing doesn't break code. It just shows you it's broken!", "Sorry that's incorrect " + user )
         randomNumber()
+        top10Quiz()
         pointsNum
         pointsYN
-        totalPoints = pointsNum + pointsYN
+        points10
+        totalPoints = points10 + pointsNum + pointsYN
+        wrongPoints
+        wrongNum
+        wrong10
+        totalWrong = wrong10 + wrongNum + wrongPoints
         skippedQuestionNum
         skippedQuestionYN
-        skippedQuestions = skippedQuestionNum + skippedQuestionYN
+        skippedQuestion10
+        skippedQuestions = skippedQuestion10 + skippedQuestionNum + skippedQuestionYN
         testQuizFinished()
         
     if(ready === true){
@@ -117,8 +131,8 @@ function testQuiz(question, answer, wrongAnswer, messageCorrect, messageWrong){
     console.log("End y/n")
     // randomNumber()
 }
-    let num = Math.floor(Math.random() * 10) + 1;
-    let turns = 4;
+let num = Math.floor(Math.random() * 10) + 1;
+let turns = 4;
     
     function randomNumber() {
     while (turns > 0) {
@@ -143,103 +157,67 @@ function testQuiz(question, answer, wrongAnswer, messageCorrect, messageWrong){
                 turns--;
                 alert("Your guess was too high. Turns remaining: " + turns);
             }
-    }
-    if (turns==0)
-    alert ("Sorry " + user + " you failed to guess correctly. The correct numer was " + num);
-    turns = 4
-    // testQuizFinished()
-
-    }
+    } if (turns==0)
+        alert ("Sorry " + user + " you failed to guess correctly. The correct numer was " + num);
+        wrongNum = wrongNum +1
+        console.log("you got it wron " + wrongNum)
+        turns = 4
+}
     
     
     function testQuizFinished(){
+        console.log("Total score correct " + totalPoints + " wrong " + totalWrong + " skipped " + skippedQuestions)
         alert("Thank you " + user + " for taking part of my quiz. You have answered " + totalPoints + " questions correctly! You also skipped " + skippedQuestions + ".")
+        pointsYN = 0;
+        pointsNum = 0;
+        points10 = 0
+        totalPoints = 0;
+        wrongPoints = 0;
+        skippedQuestionYN = 0;
+        skippedQuestionNum = 0;
+        kippedQuestion10 = 0;
+        skippedQuestions = 0;
     }
     
-    
-    
+let turnsLeft = 6;
+function top10Quiz(){
+    console.log(top10Drinks[0]);
+    console.log(top10Drinks[1]);
+    console.log(top10Drinks[2]);
+    console.log(top10Drinks.length);
+    console.log(top10Drinks);
+    while (turnsLeft > 0) {
+        guess=prompt("What is one of my top 10 Drinks?");
+        // guess == guess.toLowerCase
+        if(guess == null){
+            console.log(guess + "its null folks")
+            alert("OK no more guessing?")
+            skippedQuestion10 = skippedQuestion10 + 1
+            console.log("Current no. of skipped questions " + skippedQuestion10)
+            return
+        } else if (top10Drinks.includes(guess.toLowerCase())){
+            turnsLeft--
+            alert ("Correct! " + guess + " is one of my top 10. Can you guess another? You have " + turnsLeft + " more turns.")
+                console.log(guess + "What they guessed")
+                points10 = points10 + 1
+                console.log("total drinks points " + points10)
+            } else if (turnsLeft != 1){
+                turnsLeft--
+                alert ("Sorry that isn't in my top 10. Try again you have " + turnsLeft + " turns left.")
+                wrong10 = wrong10 + 1
+                console.log("total wrong drinks points " + wrong10)
+            } else {
+            turnsLeft--
+            alert ("Sorry that isn't in my top 10 and you are out of guesses")
+            wrong10 = wrong10 + 1
+            console.log("total wrong drinks points " + wrong10)
+            }
+    } if (turnsLeft==0)
+        alert ("WOW " + user + " you got " + points10 + " of my top 10 Drinks!");
+        console.log("out of guesses")
+        turnsLeft = 6
+        console.log("points " + points10 + " wrong " + wrong10 + " skipped " + skippedQuestion10)
+    }
 
 
-// DO NOT USE THIS ONE IT DOESNT WORK!!!!
-// function testQuizNumer(){
-//     let numberGuessed
-//     while(numberGuessed != 7){
-//         console.log("This is the number guessed " + numberGuessed);
-//         numberGuessed = prompt("Can you guess my lucky number? Hint: between 1 and 10");
-//         if(numberGuessed == null){
-//             console.log("num is null" + numberGuessed)
-//             alert("OK fine don't answer this question?")
-//             skippedQuestion = skippedQuestion + 1
-//             console.log("Currenlt no. of skipped questions " + skippedQuestion)
-//             return
-//         } else 
-//         // {
-//             // numberGuessed = numberGuessed
-//             // console.log("Number its null")
-//         // } 
-//         for (let i = 4; numberGuessed; i--){
-//             // numberGuessed = prompt("Can you guess my lucky number? Hint: between 1 and 10")
-//             if (!numberGuessed){
-//                 alert("Please give me a valid input between 1 and 10!!!")
-//                 console.log("not valid")
-//                 // numberGuessed = prompt("Can you guess my lucky number? Hint: between 1 and 10")
-//             }else if(isNaN(numberGuessed)){
-//                 alert("Please give my a valid input between 1 and 10")
-//                 console.log("User guessed new number " + numberGuessed)
-//                 // numberGuessed = prompt("Can you guess my lucky number? Hint: between 1 and 10")
-//             }else if(numberGuessed == 7){
-//                 alert("Correct " + user +" "+ numberGuessed + " is my lucky number!")
-//                 points = points + 1
-//                 return
-//             } else if(numberGuessed <= 6){
-//                 alert("Sorry that number is too low. Try a higher one.")
-//                 console.log("too low" + numberGuessed)
-//                 // numberGuessed = prompt("Please try a higher number")
-//                 console.log("new number" + numberGuessed)
-//             } else if(numberGuessed >=8){
-//                 console.log("too high" + numberGuessed)
-//                 alert("Sorry that number is too high. Try a lower one.")
-//                 // numberGuessed = prompt("Please enter a lower number")
-//                 console.log("newNumer" + numberGuessed)
-//             } else if(numberGuessed <+0 || numberGuessed >=11){
-//                 console.log("not within 1-10" + numberGuessed)
-//                 alert("Please guess between 1 and 10")
-//                 // numberGuessed = prompt("Please enter a lower number")
-//                 console.log("newNumer" + numberGuessed)
-//             }
-//         }
-//     }
-// }
-    
-
-// let num = Math.floor(Math.random() * 10) + 1;
-// let turns = 4;
-
-// function randomNumber() {
-// while (turns > 0) {
-//     guess=prompt("Try and guess a random number!!!");
-//         if (guess == num) {
-//             points = points = 1;
-//             alert("Congratulations " + user + ", you won! The mystery number was " + num + ".");
-//             console.log(guess)
-//             console.log(num)
-//             console.log(points)
-//             return;
-//         } else if (guess < num) {
-//             turns--;
-//             alert("Your guess was too low. Turns remaining: " + turns);
-//         } else if (guess > num) {
-//             turns--;
-//             alert("Your guess was too high. Turns remaining: " + turns);
-//         }
-// }
-// if (turns==0)
-// alert ("Sorry " + user + " you failed to guess correctly. The correct numer was " + num);
-// turns = 4
-// }
-
-
-// function testQuizFinished(){
-//     alert("Thank you " + user + " for taking part of my quiz. You have answer " + points + " questions correctly! You also skipped " + skippedQuestion + ".")
-// }
 
