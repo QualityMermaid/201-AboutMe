@@ -140,36 +140,6 @@ function testQuiz(question, answer, messageCorrect, messageWrong){
     // randomNumber()
 }
 
-const number = Math.floor(Math.random() * 10 + 1);
-console.log(number);
-function randomNumberAgain() {
-
-    for (let i = 2; i >= 0; i--) {
-        let guesses = i + 1;
-
-        let guess = prompt("Guess a number between 1 and 10! you have " + guesses + " attempts");
-
-        const guessNum = parseInt(guess);
-
-        if (guessNum === number) {
-        // console.log("You win");
-        alert("You win");
-        break;
-        } else if (guessNum < number) {
-        // console.log("to low");
-        alert("to low");
-        } else if (guessNum > number) {
-        // console.log("to high");
-        alert("to high");
-        }
-
-        if (i === 0) {
-        alert("The correct number was " + number);
-        break; 
-        }
-    }
-}
-
 let num;
 let turns;
     
@@ -210,38 +180,60 @@ function city(){
 const location = ["cambridge", "falmouth"]
 let turnYouHaveLeft = 6;
 let winnerWinner
-    // for(let i = 6; i > 1; i--){
+let city 
+
+    for(let i = 6; i > 0; i--){
         // winnerWinner = false
         // console.log("for loop 1 " + winnerWinner)
         
-        // const attempts = i - 1
+        turnYouHaveLeft = i - 1
         // let city = prompt("Where have I lived")
+        console.log("log1")
         // city = city.toLowerCase()
+        console.log("log2")
+
     // }
 
         for(let j = 0; j < location.length; j++ ){
-            let city = prompt("Where have I lived")
-            city = city.toLowerCase()
+            city = prompt("Where have I lived").toLowerCase()
+            // city = city.toLowerCase()
             if(location[j] === city){
+                console.log("log3")
                 alert("Well done " + user + ". I have lived in  " + city + ". You managed to guess right with " + turnYouHaveLeft + " turns left!")
+                console.log("log3")
                 winnerWinner = true
                 console.log(pointsCity)
-                console.log()
                 pointsCity++
                 break
-            } else {
-                console.log("Something has gone wrong null entry")
-                turnYouHaveLeft--
+            } else if(!city || city == " "){
+                alert("Please guess a place I have lived")
+                // city = prompt("Hi. Can you guess where have I lived?")
+                break
+            } else (location[j] != city )
+            {
+                console.log("wrong answer")
+                // turnYouHaveLeft--
                 alert("Sorry " + user + ' I have not lived at ' + city + ". You have " + turnYouHaveLeft + " turns left.")
                 wrongCity++
+                // city = prompt("Hi. Can you guess where have I lived?")
+                break
             }
+        }if(winnerWinner == true){
+            break
+        }else if (i == 0){
+            alert("Sorry " + user + " you didn't guess anywhere correctly and have used all your guesses. Try again later")
+        }else if (!city && i > 0){
+            turnYouHaveLeft++
+            i++
+            // city = prompt("Hi. Can you guess where have I lived?")
         }
-    // }
+    }
+}
     // if(winnerWinner == true){
         // pointsCity++
     // } 
 
-}
+
 
 
 
