@@ -60,17 +60,17 @@ function guessGame(){
         pointsYN
         points10
         pointsCity
-        totalPoints = points10 + pointsNum + pointsYN + pointsCity
+        totalPoints = (points10 + pointsNum) + (pointsYN + pointsCity)
         wrongPoints
         wrongNum
         wrong10
         wrongCity
-        totalWrong = wrong10 + wrongNum + wrongPoints + wrongCity
+        totalWrong = (wrong10 + wrongNum) + (wrongPoints + wrongCity)
         skippedQuestionNum
         skippedQuestionYN
         skippedQuestion10
         skippedCity
-        skippedQuestions = skippedQuestion10 + skippedQuestionNum + skippedQuestionYN + skippedCity
+        skippedQuestions = (skippedQuestion10 + skippedQuestionNum) + (skippedQuestionYN + skippedCity)
         city()
         testQuizFinished()
 
@@ -195,15 +195,25 @@ let city
     // }
 
         for(let j = 0; j < location.length; j++ ){
-            city = prompt("Where have I lived").toLowerCase()
+            city = prompt("Where have I lived")
             // city = city.toLowerCase()
+            if(city == null){
+                console.log("city question cancled")
+                alert("OK fine don't answer this question?")
+                skippedCity = skippedCity + 1
+                console.log("Currenlt no. of skipped questions " + skippedCity)
+                return
+            } else {
+                console.log("user skipped this as well")
+                city = city.toLowerCase()
+            }
             if(location[j] === city){
                 console.log("log3")
                 alert("Well done " + user + ". I have lived in  " + city + ". You managed to guess right with " + turnYouHaveLeft + " turns left!")
                 console.log("log3")
                 winnerWinner = true
                 console.log(pointsCity)
-                pointsCity++
+                pointsCity = pointsCity + 1
                 break
             } else if(!city || city == " "){
                 alert("Please guess a place I have lived")
@@ -214,7 +224,7 @@ let city
                 console.log("wrong answer")
                 // turnYouHaveLeft--
                 alert("Sorry " + user + ' I have not lived at ' + city + ". You have " + turnYouHaveLeft + " turns left.")
-                wrongCity++
+                wrongCity = wrongCity + 1
                 // city = prompt("Hi. Can you guess where have I lived?")
                 break
             }
@@ -226,6 +236,9 @@ let city
             turnYouHaveLeft++
             i++
             // city = prompt("Hi. Can you guess where have I lived?")
+        } else if (city == null){
+            // skippedCity = skippedCity
+            break
         }
     }
 }
@@ -283,14 +296,21 @@ function top10Quiz(){
 
 function testQuizFinished(){
     console.log("Total score correct " + totalPoints + " wrong " + totalWrong + " skipped " + skippedQuestions)
+    console.log("YN " + pointsYN + wrongPoints + skippedQuestionYN)
+    console.log("Num " + pointsNum + wrongNum + skippedQuestionNum)
+    console.log("Top10 " + points10 + wrong10 + skippedQuestion10)
+    console.log("City " + pointsCity + wrongCity + skippedCity)
     alert("Thank you " + user + " for taking part of my quiz. You have answered " + totalPoints + " questions correctly! You also skipped " + skippedQuestions + ".")
     pointsYN = 0;
     pointsNum = 0;
-    points10 = 0
+    points10 = 0;
+    pointsCity = 0;
     totalPoints = 0;
     wrongPoints = 0;
+    wrongCity = 0;
     skippedQuestionYN = 0;
     skippedQuestionNum = 0;
-    kippedQuestion10 = 0;
+    skippedQuestion10 = 0;
     skippedQuestions = 0;
+    skippedCity = 0;
 }
