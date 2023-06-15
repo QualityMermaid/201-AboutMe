@@ -1,5 +1,22 @@
 alert("Hi, my name is Jessica, Welcome to my site!")
-const user = yourName(); // maybe change to const
+const user = yourName();
+
+if(user.toLowerCase() === "chris" ){
+document.getElementById("btn-notChris").classList.add("isChris")
+
+document.getElementById("chris1").classList.add("chris1")
+document.getElementById("two").classList.add("chris2")
+document.getElementById("chris3").classList.add("chris3")
+}
+
+function chrisButton(){
+document.getElementById("btn-notChris").classList.remove("isChris")
+document.getElementById("chris1").classList.remove("chris1")
+document.getElementById("two").classList.remove("chris2")
+document.getElementById("chris3").classList.remove("chris3")
+
+}
+
 let pointsYN = 0;
 let pointsNum = 0;
 let points10 = 0
@@ -300,6 +317,8 @@ function testQuizFinished(){
     console.log("Num " + pointsNum + wrongNum + skippedQuestionNum)
     console.log("Top10 " + points10 + wrong10 + skippedQuestion10)
     console.log("City " + pointsCity + wrongCity + skippedCity)
+    
+    
     alert("Thank you " + user + " for taking part of my quiz. You have answered " + totalPoints + " questions correctly! You also skipped " + skippedQuestions + ".")
     pointsYN = 0;
     pointsNum = 0;
