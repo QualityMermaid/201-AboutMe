@@ -2,13 +2,67 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Lora', serif;
+}
+header{
+    background-color: teal;
 }
 
+main{
+    background: rgb(103,95,241);
+    background: linear-gradient(155deg, rgba(103,95,241,1) 0%, rgba(107,226,247,1) 51%, rgba(0,247,255,1) 100%);
+}
 
 h1{
     font-family: 'Lora', serif;
+    font-size: 2rem;
+    margin: 1rem;
     color: blue;
+}
+
+h2{
+    font-weight: bold;
+}
+
+section{
+    border: 7px solid green;
+    border-radius: 13px;
+    width: 80%;
+    margin: 1rem auto 0 auto;
+    height: 40rem;
+    position: static; 
+    /* this is a static element and will only do the default */
+}
+
+article{
+    border: medium solid black;
+    margin: 1rem;
+}
+
+#one{
+    width: 20%;
+    background-color: #4CAF50;
+    position: relative;
+}
+
+#two{
+    width: 50%;
+    background-color: black;
+    color: white;
+    position: absolute;
+    top: 4rem;
+    right: 10rem;
+}
+
+#three{
+    width: 50%;
+    margin: 0;
+    background-color: burlywood;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    transform: translateX(50%); /* to position it centered X axis */
+
 }
 
 .chris{
